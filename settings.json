@@ -1,0 +1,86 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(claude mcp:*)",
+      "Bash(npm search:*)",
+      "mcp__asana__search_tasks",
+      "mcp__asana__get_task",
+      "mcp__asana__create_tasks",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); asana = {k:v for k,v in d.items\\(\\) if ''''asana'''' in k.lower\\(\\)}; print\\(json.dumps\\(asana, indent=2\\)\\)\")",
+      "mcp__claude_ai_Microsoft_365__outlook_calendar_search",
+      "mcp__claude_ai_Microsoft_365__outlook_email_search",
+      "Skill(schedule)",
+      "Skill(schedule:*)",
+      "Bash(crontab -l)",
+      "mcp__semrush__siteaudit_research",
+      "mcp__semrush__get_report_schema",
+      "Bash(MCP_CLIENT_SECRET=653f2fa05f6e4ea562706bfd7cc03724 claude mcp add asana https://mcp.asana.com/v2/mcp --transport http --client-id 1213836286741692 --client-secret --callback-port 10000)",
+      "mcp__asana__get_users",
+      "mcp__asana__get_me",
+      "mcp__asana__get_projects",
+      "mcp__asana__get_project",
+      "mcp__asana__search_objects",
+      "mcp__asana__get_tasks",
+      "mcp__asana__update_tasks",
+      "mcp__asana__delete_task",
+      "WebFetch(domain:youtube.com)"
+    ],
+    "defaultMode": "auto"
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"Claude finished\" with title \"Claude Code\" sound name \"Glass\"' 2>/dev/null || true"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"systemMessage\": \"Context is about to compact. Jot down anything important to carry forward: approved posts, open decisions, file paths, next steps.\"}'"
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "notion-workspace-plugin@notion-plugin-marketplace": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    },
+    "notion-plugin-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "makenotion/claude-code-notion-plugin"
+      }
+    }
+  },
+  "effortLevel": "medium",
+  "skipDangerousModePermissionPrompt": true,
+  "skipAutoPermissionPrompt": true,
+      "statusLine": {
+      "type": "command",
+      "command": "sh /Users/braxtengarcia/.claude/statusline-command.sh"
+    },
+  "mcpServers": {
+    "asana": {
+      "url": "https://mcp.asana.com/v2/mcp",
+      "headers": {
+        "Authorization": "Bearer 653f2fa05f6e4ea562706bfd7cc03724"
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+# Conversation and session data
+history.jsonl
+session-env/
+sessions/
+shell-snapshots/
+
+# Caches and temp files
+cache/
+paste-cache/
+stats-cache.json
+mcp-needs-auth-cache.json
+file-history/
+downloads/
+chrome/
+telemetry/
+usage-data/
+
+# Sensitive config (may contain tokens/API keys)
+settings.local.json
+policy-limits.json
+
+# IDE and system files
+ide/
+.DS_Store
+*.swp
+*.swo
+
+# Plugin marketplace data (auto-managed by Claude Code)
+plugins/marketplaces/
+plugins/install-counts-cache.json
+
+# Project session logs (conversation history, not config)
+projects/**/*.jsonl
+projects/**/tool-results/
+projects/**/subagents/
+
+# Claude internal
+.claude/
